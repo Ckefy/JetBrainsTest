@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/theme/idea.css">
+    <link rel="stylesheet" href="index.css">
+
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/markdown/markdown.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <textarea id="code-editor" name="code-editor"></textarea>
+    <script>
+        let editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+            lineNumbers: true,
+            mode: "text/x-markdown",
+            indentUnit: 2,
+            indentWithTabs: true,
+            highlightFormatting: true,
+            theme: "idea"
+        });
+        editor.setHeight(100);
+    </script>
+    <span class="preview">Preview:</span>
+    <span class="annotate">(wait 1 second to auto-compile)</span>
+    <div id="text" spellcheck="false"></div>
+</body>
+</html>
